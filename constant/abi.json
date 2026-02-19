@@ -1,0 +1,258 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      { "name": "_subscriptionId", "type": "uint64", "internalType": "uint64" },
+      {
+        "name": "_protocolFeeWallet",
+        "type": "address",
+        "internalType": "address"
+      },
+      { "name": "_owner", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "PROTOCOL_FEE_WALLET",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "createGroupSingleYieldAdapter",
+    "inputs": [
+      {
+        "name": "yieldInfo",
+        "type": "tuple",
+        "internalType": "struct ISavingsFactory.SingleYieldInfo",
+        "components": [
+          { "name": "name", "type": "string", "internalType": "string" },
+          {
+            "name": "yieldAdapter",
+            "type": "address",
+            "internalType": "address"
+          },
+          { "name": "token", "type": "address", "internalType": "address" },
+          { "name": "startTime", "type": "uint256", "internalType": "uint256" },
+          { "name": "duration", "type": "uint256", "internalType": "uint256" },
+          {
+            "name": "winnersCount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "minDeposit",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "maxDeposit",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "minMembers",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "maxMembers",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalexpectedDepositPerUser",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalDepositGoal",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          { "name": "uri", "type": "string", "internalType": "string" },
+          { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
+        ]
+      }
+    ],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getAllGroups",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ISavingsFactory.GroupInfo[]",
+        "components": [
+          { "name": "group", "type": "address", "internalType": "address" },
+          { "name": "owner", "type": "address", "internalType": "address" },
+          { "name": "name", "type": "string", "internalType": "string" },
+          { "name": "uri", "type": "string", "internalType": "string" },
+          {
+            "name": "totalDepositGoal",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getGroup",
+    "inputs": [{ "name": "id", "type": "uint256", "internalType": "uint256" }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct ISavingsFactory.GroupInfo",
+        "components": [
+          { "name": "group", "type": "address", "internalType": "address" },
+          { "name": "owner", "type": "address", "internalType": "address" },
+          { "name": "name", "type": "string", "internalType": "string" },
+          { "name": "uri", "type": "string", "internalType": "string" },
+          {
+            "name": "totalDepositGoal",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "groupCount",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "groups",
+    "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "outputs": [
+      { "name": "group", "type": "address", "internalType": "address" },
+      { "name": "owner", "type": "address", "internalType": "address" },
+      { "name": "name", "type": "string", "internalType": "string" },
+      { "name": "uri", "type": "string", "internalType": "string" },
+      {
+        "name": "totalDepositGoal",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "owner",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "renounceOwnership",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setProtocolFeeWallet",
+    "inputs": [
+      {
+        "name": "_protocolFeeWallet",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "transferOwnership",
+    "inputs": [
+      { "name": "newOwner", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "GroupCreated",
+    "inputs": [
+      {
+        "name": "id",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "group",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "owner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "OwnableInvalidOwner",
+    "inputs": [
+      { "name": "owner", "type": "address", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "OwnableUnauthorizedAccount",
+    "inputs": [
+      { "name": "account", "type": "address", "internalType": "address" }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+    "0x3600000000000000000000000000000000000000": {
+        "name": "USDC",
+        "symbol": "USDC",
+        "decimals": 6,
+        "address": "0x3600000000000000000000000000000000000000",
+        "yieldadapter": "0x5F67925f67bb556a64e082D2eb88fc5D7De313CD",
+        "yieldAdapter name": "Aave"
+    }
+}
