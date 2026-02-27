@@ -4,8 +4,8 @@ import { headers } from "next/headers";
 import "./globals.css";
 import ContextProvider from "@/context";
 import { WalletRouter } from "@/components/pools/WalletRouter";
+import { AutoVerifyModal } from "@/components/verification/AutoVerifyModal";
 import { Toaster } from "sonner";
-
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -33,8 +33,9 @@ export default async function RootLayout({
       <body className={`${manrope.variable} antialiased bg-white min-h-screen`}>
         <ContextProvider cookies={cookies}>
           <main className="bg-white min-h-screen">  
-            <Toaster />
-            <WalletRouter />         
+            <Toaster position="top-right" />
+            <WalletRouter />
+            <AutoVerifyModal />
             {children}
           </main>
         </ContextProvider>
