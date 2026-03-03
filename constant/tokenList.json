@@ -1,10 +1,18 @@
 {
-    "0x3600000000000000000000000000000000000000": {
+    "0x318AB69A8dCf27a6F49e56E32B5a0c4FD302c23E": {
         "name": "USDC",
         "symbol": "USDC",
         "decimals": 6,
-        "address": "0x3600000000000000000000000000000000000000",
-        "yieldadapter": "0x5F67925f67bb556a64e082D2eb88fc5D7De313CD",
-        "yieldAdapter name": "Aave"
+        "address": "0x318AB69A8dCf27a6F49e56E32B5a0c4FD302c23E",
+        "yieldadapter": "0xA35d432790a1C76f1194eFC7672e1884C1876720",
+        "yieldAdapter name": "MockAave"
+    },
+     "0xc2ed2E050B092C20995f6F47dB357e25CDe0fDA4": {
+        "name": "G$",
+        "symbol": "G$",
+        "decimals": 6,
+        "address": "0xc2ed2E050B092C20995f6F47dB357e25CDe0fDA4",
+        "yieldadapter": "0xA35d432790a1C76f1194eFC7672e1884C1876720",
+        "yieldAdapter name": "MockAave"
     }
 }

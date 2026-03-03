@@ -2,162 +2,142 @@
   {
     "type": "constructor",
     "inputs": [
-      { "name": "_subscriptionId", "type": "uint64", "internalType": "uint64" },
       {
-        "name": "_protocolFeeWallet",
+        "name": "_poolBlueprint",
         "type": "address",
         "internalType": "address"
       },
-      { "name": "_owner", "type": "address", "internalType": "address" }
+      { "name": "_vault", "type": "address", "internalType": "address" },
+      { "name": "_vrfModule", "type": "address", "internalType": "address" },
+      {
+        "name": "_identityContract",
+        "type": "address",
+        "internalType": "address"
+      },
+      { "name": "_treasury", "type": "address", "internalType": "address" }
     ],
     "stateMutability": "nonpayable"
   },
   {
     "type": "function",
-    "name": "PROTOCOL_FEE_WALLET",
+    "name": "MAX_ACTIVE_POOLS",
     "inputs": [],
+    "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "activePoolCount",
+    "inputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "allPools",
+    "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
     "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
     "stateMutability": "view"
   },
   {
     "type": "function",
-    "name": "createGroupSingleYieldAdapter",
-    "inputs": [
-      {
-        "name": "yieldInfo",
-        "type": "tuple",
-        "internalType": "struct ISavingsFactory.SingleYieldInfo",
-        "components": [
-          { "name": "name", "type": "string", "internalType": "string" },
-          {
-            "name": "yieldAdapter",
-            "type": "address",
-            "internalType": "address"
-          },
-          { "name": "token", "type": "address", "internalType": "address" },
-          { "name": "startTime", "type": "uint256", "internalType": "uint256" },
-          { "name": "duration", "type": "uint256", "internalType": "uint256" },
-          {
-            "name": "winnersCount",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "minDeposit",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "maxDeposit",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "minMembers",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "maxMembers",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "totalexpectedDepositPerUser",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          {
-            "name": "totalDepositGoal",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          { "name": "uri", "type": "string", "internalType": "string" },
-          { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
-        ]
-      }
-    ],
-    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "getAllGroups",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "tuple[]",
-        "internalType": "struct ISavingsFactory.GroupInfo[]",
-        "components": [
-          { "name": "group", "type": "address", "internalType": "address" },
-          { "name": "owner", "type": "address", "internalType": "address" },
-          { "name": "name", "type": "string", "internalType": "string" },
-          { "name": "uri", "type": "string", "internalType": "string" },
-          {
-            "name": "totalDepositGoal",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
-        ]
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "getGroup",
-    "inputs": [{ "name": "id", "type": "uint256", "internalType": "uint256" }],
-    "outputs": [
-      {
-        "name": "",
-        "type": "tuple",
-        "internalType": "struct ISavingsFactory.GroupInfo",
-        "components": [
-          { "name": "group", "type": "address", "internalType": "address" },
-          { "name": "owner", "type": "address", "internalType": "address" },
-          { "name": "name", "type": "string", "internalType": "string" },
-          { "name": "uri", "type": "string", "internalType": "string" },
-          {
-            "name": "totalDepositGoal",
-            "type": "uint256",
-            "internalType": "uint256"
-          },
-          { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
-        ]
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "groupCount",
+    "name": "allPoolsCount",
     "inputs": [],
     "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
     "stateMutability": "view"
   },
   {
     "type": "function",
-    "name": "groups",
-    "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-    "outputs": [
-      { "name": "group", "type": "address", "internalType": "address" },
-      { "name": "owner", "type": "address", "internalType": "address" },
-      { "name": "name", "type": "string", "internalType": "string" },
-      { "name": "uri", "type": "string", "internalType": "string" },
+    "name": "createPool",
+    "inputs": [
       {
-        "name": "totalDepositGoal",
-        "type": "uint256",
-        "internalType": "uint256"
-      },
-      { "name": "additionalInfo", "type": "bytes", "internalType": "bytes" }
+        "name": "config",
+        "type": "tuple",
+        "internalType": "struct INectarPool.PoolConfig",
+        "components": [
+          { "name": "token", "type": "address", "internalType": "address" },
+          {
+            "name": "targetAmount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          { "name": "maxMembers", "type": "uint16", "internalType": "uint16" },
+          { "name": "totalCycles", "type": "uint16", "internalType": "uint16" },
+          {
+            "name": "winnersCount",
+            "type": "uint16",
+            "internalType": "uint16"
+          },
+          {
+            "name": "cycleDuration",
+            "type": "uint32",
+            "internalType": "uint32"
+          },
+          {
+            "name": "requiresIdentity",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "enrollmentWindow",
+            "type": "uint8",
+            "internalType": "enum INectarPool.EnrollmentWindow"
+          },
+          {
+            "name": "distributionMode",
+            "type": "uint8",
+            "internalType": "enum INectarPool.DistributionMode"
+          }
+        ]
+      }
     ],
+    "outputs": [
+      { "name": "pool", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "decrementActivePool",
+    "inputs": [
+      { "name": "member", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "identityContract",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "incrementActivePool",
+    "inputs": [
+      { "name": "member", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "isDeployedPool",
+    "inputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
     "stateMutability": "view"
   },
   {
     "type": "function",
     "name": "owner",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "poolBlueprint",
     "inputs": [],
     "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
     "stateMutability": "view"
@@ -171,13 +151,45 @@
   },
   {
     "type": "function",
-    "name": "setProtocolFeeWallet",
+    "name": "setIdentityContract",
     "inputs": [
-      {
-        "name": "_protocolFeeWallet",
-        "type": "address",
-        "internalType": "address"
-      }
+      { "name": "_identity", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setPoolBlueprint",
+    "inputs": [
+      { "name": "_blueprint", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setTreasury",
+    "inputs": [
+      { "name": "_treasury", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setVault",
+    "inputs": [
+      { "name": "_vault", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setVrfModule",
+    "inputs": [
+      { "name": "_vrfModule", "type": "address", "internalType": "address" }
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
@@ -192,32 +204,41 @@
     "stateMutability": "nonpayable"
   },
   {
+    "type": "function",
+    "name": "treasury",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "vault",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "vrfModule",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+    "stateMutability": "view"
+  },
+  {
     "type": "event",
-    "name": "GroupCreated",
+    "name": "GlobalConfigUpdated",
     "inputs": [
       {
-        "name": "id",
-        "type": "uint256",
-        "indexed": true,
-        "internalType": "uint256"
-      },
-      {
-        "name": "group",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "owner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "name",
+        "name": "field",
         "type": "string",
         "indexed": false,
         "internalType": "string"
+      },
+      {
+        "name": "newValue",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
       }
     ],
     "anonymous": false
@@ -242,17 +263,54 @@
     "anonymous": false
   },
   {
+    "type": "event",
+    "name": "PoolCreated",
+    "inputs": [
+      {
+        "name": "pool",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "creator",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "targetAmount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "maxMembers",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      },
+      {
+        "name": "totalCycles",
+        "type": "uint16",
+        "indexed": false,
+        "internalType": "uint16"
+      }
+    ],
+    "anonymous": false
+  },
+  { "type": "error", "name": "ERC1167FailedCreateClone", "inputs": [] },
+  {
     "type": "error",
     "name": "OwnableInvalidOwner",
     "inputs": [
       { "name": "owner", "type": "address", "internalType": "address" }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "OwnableUnauthorizedAccount",
-    "inputs": [
-      { "name": "account", "type": "address", "internalType": "address" }
     ]
   }
 ]
