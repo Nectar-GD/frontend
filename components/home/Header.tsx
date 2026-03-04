@@ -52,10 +52,7 @@ export default function Header() {
               Create
             </Link>
           </nav>
-
-          {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Verification Badge (only show if connected) */}
             {isConnected && (
               <div className="flex items-center gap-2">
                 {isLoading ? (
@@ -79,8 +76,6 @@ export default function Header() {
                 )}
               </div>
             )}
-
-            {/* Connect Wallet Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -90,8 +85,6 @@ export default function Header() {
               {isConnected ? 'Connected' : 'Connect Wallet'}
             </motion.button>
           </div>
-
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-[#252B36]"
@@ -101,8 +94,6 @@ export default function Header() {
           </button>
         </div>
       </motion.header>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -110,7 +101,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed top-[72px] left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40"
+            className="md:hidden fixed top-18 left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40"
           >
             <nav className="px-4 py-6 space-y-4">
               <Link
@@ -128,7 +119,6 @@ export default function Header() {
                 Create
               </Link>
 
-              {/* Mobile Verification Badge */}
               {isConnected && (
                 <div className="py-2">
                   {isLoading ? (
