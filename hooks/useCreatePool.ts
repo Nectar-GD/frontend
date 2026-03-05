@@ -2,32 +2,29 @@ import {
   useWriteContract,
   useWaitForTransactionReceipt,
 } from "wagmi";
-import { useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { parseUnits, decodeEventLog } from "viem";
 import nectarFactoryAbi from "@/constant/abi.json";
 import { toast } from "sonner";
 
 const FACTORY_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`;
 
-// Matches INectarPool.EnrollmentWindow enum
 export enum EnrollmentWindow {
-  Standard = 0, // first 50% of cycles
-  Strict = 1,   // first 25% of cycles
-  Fixed = 2,    // cycle 1 only
+  Standard = 0,
+  Strict = 1,
+  Fixed = 2,
 }
 
-// Matches INectarPool.DistributionMode enum
 export enum DistributionMode {
   Equal = 0,
-  Weighted = 1,    // 50/30/20 tiers
-  GrandPrize = 2,  // single winner takes all
+  Weighted = 1,
+  GrandPrize = 2,
 }
 
-// Contribution frequency mapped to cycleDuration in seconds
 export enum ContributionFrequency {
-  Daily = 86400,     // 1 day
-  Weekly = 604800,   // 7 days
-  Monthly = 2592000, // 30 days
+  Daily = 86400,
+  Weekly = 604800,
+  Monthly = 2592000,
 }
 
 export interface CreatePoolFormData {
@@ -51,54 +48,58 @@ interface PoolCreatedArgs {
   totalCycles: number;
 }
 
+function extractPoolAddress(receipt: any): `0x${string}` | null {
+  for (const log of receipt.logs) {
+    try {
+      const decoded = decodeEventLog({
+        abi: nectarFactoryAbi,
+        data: log.data,
+        topics: log.topics,
+      });
+      if (decoded.eventName === "PoolCreated") {
+        return (decoded.args as unknown as PoolCreatedArgs).pool;
+      }
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
 export function useCreatePool() {
-  const [createdPoolAddress, setCreatedPoolAddress] =
-    useState<`0x${string}` | null>(null);
+  const toastShownRef = useRef<string | null>(null);
 
   const {
     data: hash,
     writeContract,
     isPending: isWriting,
     error: writeError,
+    reset: resetWrite,
   } = useWriteContract();
 
   const {
+    data: createdPoolAddress,
     isLoading: isConfirming,
     isSuccess,
-    data: receipt,
-  } = useWaitForTransactionReceipt({ hash });
+  } = useWaitForTransactionReceipt({
+    hash,
+    query: {
+      select: extractPoolAddress,
+    },
+  });
 
-  // Extract deployed pool address from PoolCreated event log
   useEffect(() => {
-    if (isSuccess && receipt && !createdPoolAddress) {
-      try {
-        for (const log of receipt.logs) {
-          try {
-            const decoded = decodeEventLog({
-              abi: nectarFactoryAbi,
-              data: log.data,
-              topics: log.topics,
-            });
+    if (!isSuccess || !hash || toastShownRef.current === hash) return;
+    toastShownRef.current = hash;
 
-            if (decoded.eventName === "PoolCreated") {
-              const args = decoded.args as unknown as PoolCreatedArgs;
-              setCreatedPoolAddress(args.pool);
-              toast.success(
-                `Pool created at ${args.pool.slice(0, 6)}...${args.pool.slice(-4)}`
-              );
-              return;
-            }
-          } catch {
-            // Not a matching event, continue to next log
-            continue;
-          }
-        }
-        toast.success("Pool created successfully!");
-      } catch {
-        toast.success("Pool created successfully!");
-      }
+    if (createdPoolAddress) {
+      toast.success(
+        `Pool created at ${createdPoolAddress.slice(0, 6)}...${createdPoolAddress.slice(-4)}`
+      );
+    } else {
+      toast.success("Pool created successfully!");
     }
-  }, [isSuccess, receipt, createdPoolAddress]);
+  }, [isSuccess, hash, createdPoolAddress]);
 
   const createPool = (
     formData: CreatePoolFormData,
@@ -107,7 +108,6 @@ export function useCreatePool() {
     try {
       const targetAmount = parseUnits(formData.targetAmount, tokenDecimals);
 
-      // Build PoolConfig struct matching the contract
       const config = {
         token: formData.token,
         targetAmount,
@@ -136,7 +136,8 @@ export function useCreatePool() {
   };
 
   const reset = () => {
-    setCreatedPoolAddress(null);
+    resetWrite();
+    toastShownRef.current = null;
   };
 
   return {
@@ -146,7 +147,7 @@ export function useCreatePool() {
     isSuccess,
     error: writeError,
     txHash: hash,
-    createdPoolAddress,
+    createdPoolAddress: createdPoolAddress ?? null,
     reset,
   };
 }
