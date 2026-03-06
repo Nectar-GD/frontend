@@ -1,4 +1,4 @@
-# Nectar[logo](public/logo.png)
+# Nectar ![logo](public/logo.png)
 
 ![Nectar Banner](public/banner.png)
 
