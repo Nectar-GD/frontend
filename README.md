@@ -1,4 +1,4 @@
-# Nectar 🍯
+# Nectar[logo](public/logo.png)
 
 ![Nectar Banner](public/banner.png)
 
@@ -9,39 +9,38 @@
 
 **Nectar** is a decentralized savings platform where communities save together, earn yield safely, and share rewards through gamified pools. Built with Next.js 16, TypeScript, and powered by World ID verification for Sybil-resistant UBI distribution.
 
-## 🌟 Features
+## Features
 
 ### Core Features
-- 🏦 **Collective Savings Pools** - Create or join community-driven savings groups
-- 📈 **Automated Yield Generation** - Earn interest through Aave V3 integration
-- 🎰 **Gamified Rewards** - Winners selected via Chainlink VRF (provably fair)
-- 🔒 **Principal Protection** - Your deposits are always safe and withdrawable
-- 🌉 **Cross-Chain Bridge** - Li.Fi integration for seamless token bridging
-- 🆔 **World ID Verification** - Sybil-resistant with biometric proof of personhood
-- 💰 **UBI Token Distribution** - Claim Universal Basic Income tokens after verification
+- **Collective Savings Pools** - Create or join community-driven savings groups
+- **Automated Yield Generation** - Earn interest through Aave V3 integration
+- **Gamified Rewards** - Winners selected via Chainlink VRF (provably fair)
+- **Principal Protection** - Your deposits are always safe and withdrawable
+- **World ID Verification** - Sybil-resistant with biometric proof of personhood
+- **UBI Token Distribution** - Claim Universal Basic Income tokens after verification
 
 ### User Experience
-- ✨ **Responsive Design** - Optimized for mobile, tablet, and desktop
-- 🎨 **Beautiful UI/UX** - Modern interface with Framer Motion animations
-- 🔔 **Real-Time Updates** - Live pool stats and member information
-- 📊 **Interactive Charts** - Visualize yield performance over time
-- 🎴 **3D Flip Cards** - Engaging pool discovery with hover effects
+- **Responsive Design** - Optimized for mobile, tablet, and desktop
+- **Beautiful UI/UX** - Modern interface with Framer Motion animations
+- **Real-Time Updates** - Live pool stats and member information
+- **Interactive Charts** - Visualize yield performance over time
+- **3D Flip Cards** - Engaging pool discovery with hover effects
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Quick Start](#-quick-start)
-- [Architecture](#-architecture)
-- [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Environment Setup](#-environment-setup)
-- [Installation](#-installation)
-- [World ID Integration](#-world-id-integration)
-- [Key Features](#-key-features)
-- [Development](#-development)
-- [Deployment](#-deployment)
-- [Contributing](#-contributing)
+- [Quick Start](#quick-start)
+- [Architecture](#architecture)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Environment Setup](#environment-setup)
+- [Installation](#installation)
+- [World ID Integration](#world-id-integration)
+- [Key Features](#key-features)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone the repository
@@ -61,7 +60,7 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000) to see the app.
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph TB
@@ -93,7 +92,7 @@ graph TB
     Group --> VRF
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 - **[Next.js 16](https://nextjs.org/)** - React framework with App Router
@@ -112,9 +111,8 @@ graph TB
 ### Backend Services
 - **[Chainlink VRF](https://chain.link/vrf)** - Verifiable randomness
 - **[Aave V3](https://aave.com/)** - Yield generation protocol
-- **[Pinata IPFS](https://pinata.cloud/)** - Decentralized image storage
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 frontend/
@@ -194,8 +192,7 @@ frontend/
 │   ├── hero-img.png
 │   ├── harvestIcon.png
 │   ├── users.png
-│   ├── yield-chart.png
-│   └── ... (other images)
+│   └── yield-chart.png
 │
 ├── .env                          # Environment variables (example)
 ├── .gitignore                    # Git ignore rules
@@ -207,7 +204,7 @@ frontend/
 └── README.md                     # This file
 ```
 
-## 🔐 Environment Setup
+## Environment Setup
 
 Create a `.env.local` file in the project root:
 
@@ -226,12 +223,7 @@ NEXT_PUBLIC_WORLDCOIN_ACTION=verify-for-ubi
 RP_SIGNING_KEY=sk_xxxxxxxxxxxxx
 
 # ===================================
-# PINATA IPFS
-# ===================================
-NEXT_PUBLIC_PINATA_JWT=your_pinata_jwt_token
-
-# ===================================
-# SMART CONTRACTS (ARC Testnet)
+# SMART CONTRACTS (Celo Mainnet)
 # ===================================
 NEXT_PUBLIC_SAVINGS_FACTORY=0xE3b1AFA2e09AC4bFA417e118B43f0737C8803940
 NEXT_PUBLIC_AAVE_ADAPTER=0x5F67925f67bb556a64e082D2eb88fc5D7De313CD
@@ -239,12 +231,12 @@ NEXT_PUBLIC_AAVE_ADAPTER=0x5F67925f67bb556a64e082D2eb88fc5D7De313CD
 
 ### Getting Credentials
 
-#### **1. Reown Project ID**
+#### 1. Reown Project ID
 1. Visit [Reown Cloud](https://cloud.reown.com/)
 2. Create new project
 3. Copy Project ID
 
-#### **2. World ID Credentials**
+#### 2. World ID Credentials
 1. Visit [Worldcoin Developer Portal](https://developer.worldcoin.org/)
 2. Create new app: "Nectar UBI"
 3. Copy:
@@ -253,12 +245,7 @@ NEXT_PUBLIC_AAVE_ADAPTER=0x5F67925f67bb556a64e082D2eb88fc5D7De313CD
    - `signing_key` (starts with `sk_` - **keep secret!**)
 4. Create action: `verify-for-ubi`
 
-#### **3. Pinata JWT**
-1. Visit [Pinata](https://app.pinata.cloud/)
-2. Create API key with upload permissions
-3. Copy JWT token
-
-## 📥 Installation
+## Installation
 
 ### Prerequisites
 
@@ -286,7 +273,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🆔 World ID Integration
+## World ID Integration
 
 Nectar uses **World ID v4.0** for Sybil-resistant verification and UBI distribution.
 
@@ -317,17 +304,17 @@ sequenceDiagram
     Backend->>Backend: POST /api/store-verification
     Backend->>Backend: Mint 100 UBI Tokens
     Backend-->>Frontend: Success
-    Frontend->>User: ✅ Verified - Pool Access Granted
+    Frontend->>User: Verified - Pool Access Granted
 ```
 
 ### Key Features
 
-- ✅ **Auto-trigger** on wallet connect (if not verified)
-- ✅ **Biometric proof** via Worldcoin Orb
-- ✅ **Sybil resistance** (one person = one verification)
-- ✅ **UBI minting** (100 tokens upon verification)
-- ✅ **Pool access control** (only verified users can join)
-- ✅ **Persistent status** (stored in database)
+- **Auto-trigger** on wallet connect (if not verified)
+- **Biometric proof** via Worldcoin Orb
+- **Sybil resistance** (one person = one verification)
+- **UBI minting** (100 tokens upon verification)
+- **Pool access control** (only verified users can join)
+- **Persistent status** (stored in database)
 
 ### Implementation
 
@@ -348,14 +335,13 @@ if (isVerified) {
 }
 ```
 
-## 🎯 Key Features
+## Key Features
 
 ### 1. Pool Discovery
 Browse all active savings pools with:
 - Interactive flip cards (hover to see details)
 - Pool stats (members, target, time left)
 - Yield performance indicators
-- Filter and search (coming soon)
 
 ### 2. Pool Details
 Comprehensive pool information:
@@ -369,7 +355,6 @@ Comprehensive pool information:
 Launch your own savings pool:
 - Customizable parameters (duration, members, winners)
 - Token selection (USDC, DAI, etc.)
-- IPFS image upload via Pinata
 - Yield adapter selection (Aave)
 
 ### 4. Deposits & Withdrawals
@@ -386,7 +371,7 @@ Fair and transparent:
 - Claim interface for winners
 - Winner history tracking
 
-## 💻 Development
+## Development
 
 ### Available Scripts
 
@@ -398,8 +383,6 @@ npm run start        # Start production server
 
 # Code Quality
 npm run lint         # Run ESLint
-npm run type-check   # TypeScript type checking
-npm run format       # Format with Prettier
 ```
 
 ### Adding New Features
@@ -418,7 +401,7 @@ npm run format       # Format with Prettier
 - Comment complex logic
 - Use custom hooks for reusable logic
 
-## 🚢 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 
@@ -444,7 +427,6 @@ Add these in **Project Settings → Environment Variables**:
 - `NEXT_PUBLIC_RP_ID`
 - `NEXT_PUBLIC_WORLDCOIN_ACTION`
 - `RP_SIGNING_KEY` (secret!)
-- `NEXT_PUBLIC_PINATA_JWT`
 
 ### Build Output
 
@@ -453,10 +435,9 @@ npm run build
 
 # Output:
 # .next/          # Built application
-# out/            # Static export (if enabled)
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Manual Testing Checklist
 
@@ -489,18 +470,17 @@ npm run build
 - [ ] All pool info displays correctly
 - [ ] Yield chart renders
 - [ ] Member list loads
-- [ ] Pagination works (if >5 members)
+- [ ] Pagination works (if more than 5 members)
 - [ ] Deposit form validates input
 - [ ] Can't join without verification
 
 **Create Pool:**
 - [ ] Form validates all inputs
-- [ ] Image upload to IPFS works
 - [ ] Token selection works
 - [ ] Pool creation succeeds
 - [ ] Redirects to new pool
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please follow these guidelines:
 
@@ -539,9 +519,9 @@ Open an issue with:
 - Screenshots (if applicable)
 - Environment details
 
-## 🗺️ Roadmap
+## Roadmap
 
-### ✅ Phase 1 (Completed)
+### Phase 1 (Completed)
 - [x] Core savings pools functionality
 - [x] Aave V3 yield integration
 - [x] Chainlink VRF for winner selection
@@ -551,7 +531,7 @@ Open an issue with:
 - [x] Responsive UI/UX
 - [x] Pool creation and management
 
-### 🚧 Phase 2 (Q2 2026)
+### Phase 2 (Q2 2026)
 - [ ] Multi-chain deployment (Ethereum, Polygon, Arbitrum)
 - [ ] Advanced pool strategies (flexible duration, recurring)
 - [ ] Social features (referrals, pool sharing)
@@ -559,7 +539,7 @@ Open an issue with:
 - [ ] Mobile app (React Native)
 - [ ] Notification system
 
-### 🔮 Phase 3 (Q3 2026)
+### Phase 3 (Q3 2026)
 - [ ] DAO governance
 - [ ] NFT achievements and rewards
 - [ ] Lending/borrowing features
@@ -567,15 +547,13 @@ Open an issue with:
 - [ ] Cross-protocol yield aggregation
 - [ ] Fiat on/off ramps
 
-## 🐛 Known Issues
+## Known Issues
 
 - World ID simulator may experience delays in staging environment
 - Mobile wallet connections sometimes require page refresh
-- IPFS uploads can be slow depending on file size
 - Chart rendering may lag with large datasets
 
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Chainlink](https://chain.link/) for VRF infrastructure
 - [Aave](https://aave.com/) for yield generation protocol
@@ -584,21 +562,19 @@ Open an issue with:
 - [OpenZeppelin](https://openzeppelin.com/) for secure smart contract libraries
 - The Ethereum and Web3 community
 
-## 📞 Support & Community
+## Support & Community
 
-- **Website**: [nectar](https://nectar-celo.vercel.app/)
+- **Website**: [nectar-celo.vercel.app](https://nectar-celo.vercel.app/)
 - **GitHub**: [github.com/Nectar-GD](https://github.com/Nectar-GD)
 
-
-## 🔗 Related Repositories
+## Related Repositories
 
 - **Smart Contracts**: [github.com/Nectar-GD/contracts](https://github.com/Nectar-GD/contracts)
 
-
-## 📊 Stats
+## Stats
 
 - **Deployed Contracts**: 2 (Factory + Adapter)
-- **Supported Chains**: Celo mainnet
+- **Supported Chains**: Celo Mainnet
 - **Components**: 20+
 - **Custom Hooks**: 15+
 - **Test Coverage**: Growing
@@ -607,8 +583,10 @@ Open an issue with:
 
 <div align="center">
 
-**Built with 🍯 by the Nectar team**
+**Built with care by the Nectar team**
 
 **Save Together. Earn Safely. Win Fairly.**
+
+[Get Started](https://nectar-celo.vercel.app/) · [Report Bug](https://github.com/Nectar-GD/frontend/issues)
 
 </div>
